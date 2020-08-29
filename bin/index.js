@@ -1,10 +1,10 @@
+#!/usr/bin/env node
 const fs = require('fs-extra');
-const _ = require('lodash');
+const { isNil } = require('lodash');
 const yargs = require('yargs');
 const { greenBright, redBright } = require('colorette');
 
 const { Reload } = require('extension-reloader-watch-2');
-const { isNil } = require('lodash');
 
 const options = yargs
     .usage('Usage: -c <config>')
@@ -24,7 +24,7 @@ const obj = {
 };
 
 const resolve_property = (obj_no, config_key) => {
-    if (!_.isNil(config) && !_.isNil(config[config_key])) {
+    if (!isNil(config) && !isNil(config[config_key])) {
         obj[obj_no][config_key] = config[config_key];
     }
 };

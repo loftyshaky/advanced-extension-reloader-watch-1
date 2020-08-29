@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "author": "loftyshaky",
     "license": "MIT",
-    "main": "index.js",
+    "main": "./bin/index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/loftyshaky/extension-reloader-watch-1.git"
@@ -13,7 +13,7 @@
         "pub": "npm publish --access public"
     },
     "bin": {
-        "watch": "./bin/index.js"
+        "watch-ext": "./bin/index.js"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^3.9.1",
