@@ -24,11 +24,18 @@ const obj = {
 };
 
 const resolve_property = (obj_no, config_key) => {
-    if (!isNil(config) && !isNil(config[config_key])) {
+    if (
+            !isNil(config)
+            && !isNil(config[config_key])
+        ) {
         obj[obj_no][config_key] = config[config_key];
     }
 };
 
+resolve_property(
+    1,
+    'port',
+);
 resolve_property(
     1,
     'watch_dirs',
