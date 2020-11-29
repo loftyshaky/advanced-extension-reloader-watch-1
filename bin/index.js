@@ -25,9 +25,9 @@ const obj = {
 
 const resolve_property = (obj_no, config_key) => {
     if (
-            !isNil(config)
-            && !isNil(config[config_key])
-        ) {
+        !isNil(config)
+        && !isNil(config[config_key])
+    ) {
         obj[obj_no][config_key] = config[config_key];
     }
 };
