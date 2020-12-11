@@ -8,7 +8,7 @@ const {
     blueBright,
 } = require('colorette');
 
-const { Reload } = require('extension-reloader-watch-2');
+const { Reload } = require('advanced-extension-reloader-watch-2');
 
 const options = yargs
     .usage('Usage: -c <config>')
