@@ -21,68 +21,34 @@ const options = yargs
         })
     .argv;
 
-let config = fs.readJSONSync(options.config);
-const config_obj = {
-    0: {},
-    1: {},
-};
+const config = fs.readJSONSync(options.config);
+const config_pre = {};
 
-const resolve_property = (obj_no, config_key) => {
+const resolve_property = (config_key) => {
     if (
         !isNil(config)
         && !isNil(config[config_key])
     ) {
-        config_obj[obj_no][config_key] = config[config_key];
+        config_pre[config_key] = config[config_key];
     }
 };
 
-resolve_property(
-    0,
-    'port',
-);
-resolve_property(
-    0,
-    'watch_paths',
-);
+resolve_property('port');
+resolve_property('watch_path');
 
-const reload = new Reload(config_obj[0]);
+const reload = new Reload(config_pre);
 
 reload.watch(
     {
         callback: () => {
-            if (isNil(config_obj[0].watch_paths)) {
+            if (isNil(config_pre.watch_path)) {
                 // eslint-disable-next-line no-console
-                console.log(redBright('Config json doesn\'t contain watch_paths property.'));
+                console.log(redBright('Config json doesn\'t contain watch_path property.'));
             } else {
-                config = fs.readJSONSync(options.config);
-                config_obj[1] = {};
-
-                resolve_property(
-                    1,
-                    'hard',
-                );
-                resolve_property(
-                    1,
-                    'all_tabs',
-                );
-                resolve_property(
-                    1,
-                    'hard_paths',
-                );
-                resolve_property(
-                    1,
-                    'soft_paths',
-                );
-                resolve_property(
-                    1,
-                    'all_tabs_paths',
-                );
-                resolve_property(
-                    1,
-                    'one_tab_paths',
-                );
-
-                reload.reload(config_obj[1]);
+                const config_after = fs.readJSONSync(options.config);
+                delete config_after.port;
+                delete config_after.watch_path;
+                reload.reload(config_after);
 
                 // eslint-disable-next-line no-console
                 console.log(blueBright(`Reloaded extension on ${new Date().toLocaleTimeString()}`));
