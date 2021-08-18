@@ -4,7 +4,7 @@ const { isNil } = require('lodash');
 const yargs = require('yargs');
 const { greenBright, redBright, blueBright } = require('colorette');
 
-const { Reload } = require('advanced-extension-reloader-watch-2');
+const Reload = require('advanced-extension-reloader-watch-2/reload');
 
 const options = yargs.usage('Usage: -c <config>').option('c', {
     alias: 'config',
