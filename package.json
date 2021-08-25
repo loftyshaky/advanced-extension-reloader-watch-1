@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "colorette": "^1.2.2",
-        "advanced-extension-reloader-watch-2": "0.0.4",
+        "advanced-extension-reloader-watch-2": "0.0.5",
         "fs-extra": "^10.0.0",
         "lodash": "^4.17.21",
         "socket.io-client": "^4.1.3",
