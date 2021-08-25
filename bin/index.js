@@ -9,7 +9,6 @@ const Reloader = require('advanced-extension-reloader-watch-2/umd/reloader');
 const error_msg = {
     config_json_is_not_valid: 'Config is not valid JSON.',
     no_watch_dir_property: "Config json doesn't contain watch_dir property.",
-    watch_dir_doesnt_exists: "Directory provided in the watch_dir property doesn't exist.",
 };
 
 const show_error = (error_msg_key) => {
@@ -52,41 +51,33 @@ if (isNil(config_pre.watch_dir)) {
 } else {
     const reloader = new Reloader(config_pre);
 
-    try {
-        reloader.watch({
-            callback: () => {
-                if (isNil(config_pre.watch_dir)) {
-                    show_error('no_watch_dir_property');
+    reloader.watch({
+        callback: () => {
+            if (isNil(config_pre.watch_dir)) {
+                show_error('no_watch_dir_property');
+
+                process.exit(1);
+            } else {
+                let config_after;
+
+                try {
+                    config_after = fs.readJSONSync(options.config);
+                } catch (error_object) {
+                    show_error('config_json_is_not_valid');
 
                     process.exit(1);
-                } else {
-                    let config_after;
-
-                    try {
-                        config_after = fs.readJSONSync(options.config);
-                    } catch (error_object) {
-                        show_error('config_json_is_not_valid');
-
-                        process.exit(1);
-                    }
-
-                    delete config_after.port;
-                    delete config_after.watch_dir;
-                    reloader.reload(config_after);
-
-                    // eslint-disable-next-line no-console
-                    console.log(
-                        blueBright(`Reloaded extension on ${new Date().toLocaleTimeString()}`),
-                    );
                 }
-            },
-        });
 
-        // eslint-disable-next-line no-console
-        console.log(greenBright('Watching...'));
-    } catch (error_object) {
-        show_error('watch_dir_doesnt_exists');
+                delete config_after.port;
+                delete config_after.watch_dir;
+                reloader.reload(config_after);
 
-        process.exit(1);
-    }
+                // eslint-disable-next-line no-console
+                console.log(blueBright(`Reloaded extension on ${new Date().toLocaleTimeString()}`));
+            }
+        },
+    });
+
+    // eslint-disable-next-line no-console
+    console.log(greenBright('Watching...'));
 }
