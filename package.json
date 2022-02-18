@@ -1,7 +1,7 @@
 {
     "name": "advanced-extension-reloader-watch-1",
     "description": "-",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "loftyshaky",
     "license": "MIT",
     "main": "./bin/index.js",
@@ -33,7 +33,7 @@
         "typescript": "^4.5.5"
     },
     "dependencies": {
-        "advanced-extension-reloader-watch-2": "1.0.0",
+        "advanced-extension-reloader-watch-2": "1.0.1",
         "colorette": "^2.0.16",
         "confusing-browser-globals": "^1.0.11",
         "fs-extra": "^10.0.0",
