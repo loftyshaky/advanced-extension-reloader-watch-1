@@ -70,6 +70,7 @@ if (isNil(config_pre.watch_dir)) {
 
                 delete config_after.port;
                 delete config_after.watch_dir;
+
                 reloader.reload(config_after);
 
                 // eslint-disable-next-line no-console
