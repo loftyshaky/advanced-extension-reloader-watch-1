@@ -10,7 +10,8 @@
         "url": "https://github.com/loftyshaky/advanced-extension-reloader-watch-1.git"
     },
     "scripts": {
-        "pub": "npm publish --access public"
+        "pub": "npm publish --access public",
+        "lint": "npx eslint . --fix"
     },
     "bin": {
         "watch-ext": "./bin/index.js"
