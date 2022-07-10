@@ -11,7 +11,7 @@
     },
     "scripts": {
         "pub": "npm publish --access public",
-        "lint": "npx eslint . --fix"
+        "lint": "npx eslint **/*.js --fix"
     },
     "bin": {
         "watch-ext": "./bin/index.js"
