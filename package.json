@@ -34,7 +34,7 @@
         "typescript": "^4.7.4"
     },
     "dependencies": {
-        "advanced-extension-reloader-watch-2": "1.2.2",
+        "advanced-extension-reloader-watch-2": "1.2.3",
         "colorette": "^2.0.19",
         "confusing-browser-globals": "^1.0.11",
         "fs-extra": "^10.1.0",
