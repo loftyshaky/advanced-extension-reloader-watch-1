@@ -1,7 +1,7 @@
 {
     "name": "advanced-extension-reloader-watch-1",
     "description": "-",
-    "version": "1.2.7",
+    "version": "1.2.8",
     "author": "loftyshaky",
     "license": "MIT",
     "main": "./bin/index.js",
