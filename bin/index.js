@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const fs = require('fs-extra');
-const { isNil } = require('lodash');
+const isNil = require('lodash/isNil');
 const yargs = require('yargs');
 const { greenBright, redBright, blueBright } = require('colorette');
 
