@@ -71,7 +71,7 @@ if (isNil(config_pre.watch_dir)) {
                 delete config_after.port;
                 delete config_after.watch_dir;
 
-                const manifest_json_is_valid = reloader.reload(config_after);
+                const manifest_json_is_valid = reloader.reload(config_after, true);
 
                 if (manifest_json_is_valid) {
                     // eslint-disable-next-line no-console
