@@ -27,7 +27,7 @@ let config;
 
 try {
     config = fs.readJSONSync(options.config);
-} catch (error_object) {
+} catch {
     show_error('config_json_is_not_valid');
 
     process.exit(1);
@@ -62,7 +62,7 @@ if (isNil(config_pre.watch_dir)) {
 
                 try {
                     config_after = fs.readJSONSync(options.config);
-                } catch (error_object) {
+                } catch {
                     show_error('config_json_is_not_valid');
 
                     process.exit(1);
