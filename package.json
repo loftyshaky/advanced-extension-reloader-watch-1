@@ -11,7 +11,7 @@
     },
     "scripts": {
         "pub": "npm publish --access public",
-        "fix": "prettier --config .prettierrc.js **/*.js --write & eslint **/*.js --fix"
+        "fix": "prettier --config .prettierrc.cjs **/*.js --write & eslint **/*.js --fix"
     },
     "bin": {
         "watch-ext": "./bin/index.js"
