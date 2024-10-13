@@ -31,7 +31,7 @@
         "react": "^18.3.1"
     },
     "dependencies": {
-        "advanced-extension-reloader-watch-2": "2.0.1",
+        "advanced-extension-reloader-watch-2": "2.1.0",
         "colorette": "^2.0.20",
         "confusing-browser-globals": "^1.0.11",
         "fs-extra": "^11.2.0",
